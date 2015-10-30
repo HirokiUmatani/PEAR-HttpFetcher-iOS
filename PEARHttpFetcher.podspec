@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "HirokiUmatani" => "o9093009555@gmail.com" }
   s.source       = { :git => "https://github.com/HirokiUmatani/PEARHttpFetcher.git", :tag => "0.0.1" }
-  s.source_files  = "REARHttpFetcher/**/*.{h,m}"
+  s.source_files  = "REARHttpFetcher/*.{h,m}"
 
 end
