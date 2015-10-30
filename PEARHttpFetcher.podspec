@@ -1,13 +1,12 @@
 Pod::Spec.new do |s|
-
-  s.name         = "PEARHttpFetcher"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of PEARHttpFetcher."
-  s.homepage     = "http://EXAMPLE/PEARHttpFetcher"
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "HirokiUmatani" => "o9093009555@gmail.com" }
-  s.source       = { :git => "https://github.com/HirokiUmatani/PEARHttpFetcher.git", :tag => "0.0.1" }
-  s.source_files  = "REARHttpFetcher/*.{h,m}"
-
+   s.name     = 'PEARHttpFetcher'
+   s.version  = '0.0.1'
+   s.platform = :ios, '7.0'
+   s.license  = 'MIT'
+   s.summary  = 'Http fetcher Library'
+   s.homepage = ''
+   s.author   = { "HirokiUmatani" => "o9093009555@gmail.com" }
+   s.source   = { :git => 'https://github.com/HirokiUmatani/PEARHttpFetcher.git', :tag => s.version.to_s }
+   s.source_files = 'PEARHttpFetcher/*.{h,m}'
+   s.requires_arc = true
 end
