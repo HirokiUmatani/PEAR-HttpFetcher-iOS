@@ -7,8 +7,8 @@
 //
 
 #import "PEARHttpFetcher.h"
-static NSString * httpGet  = @"GET";
-static NSString * httpPost = @"POST";
+static NSString * httpGet     = @"GET";
+static NSString * httpPost    = @"POST";
 static NSInteger  httpTimeOut = 15;
 
 @implementation PEARHttpFetcher
@@ -29,6 +29,7 @@ static NSInteger  httpTimeOut = 15;
                                                  returningResponse:&response
                                                              error:&error];
     
+    [self stopNetworkIndicator];
     if (error)
     {
         failed(error);
@@ -37,7 +38,7 @@ static NSInteger  httpTimeOut = 15;
     {
         success(responseData);
     }
-    [self stopNetworkIndicator];
+    
 }
 
 #pragma mark - Get ASync
@@ -55,6 +56,7 @@ static NSInteger  httpTimeOut = 15;
                                                NSData *responceData,
                                                NSError *error)
      {
+         [self stopNetworkIndicator];
          if (error)
          {
              failed(error);
@@ -63,8 +65,36 @@ static NSInteger  httpTimeOut = 15;
          {
              success(responceData);
          }
-         [self stopNetworkIndicator];
+         
      }];
+}
+
+#pragma mark - Post Sync
+- (void)fetchSyncWithUrlString:(NSString *)urlString
+                     paramData:(NSData *)paramData
+                       success:(FetchSuccess)success
+                        failed:(FetchFailed)failed
+{
+    NSMutableURLRequest *request = [self setHttpRequestWithURL:urlString
+                                                        method:httpPost];
+    request.HTTPBody = paramData;
+    [self restartNetworkIndicator];
+    NSURLResponse *response;
+    NSError *error;
+    
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    [self stopNetworkIndicator];
+    if (error)
+    {
+        failed(error);
+    }
+    else
+    {
+        success(responseData);
+    }
+    
 }
 
 #pragma mark - Post ASync

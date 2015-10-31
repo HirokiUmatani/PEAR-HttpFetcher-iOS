@@ -6,11 +6,12 @@
 //  Copyright (c) 2015年 hirokiumatani. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+
 /*** request success blocks */
-typedef void (^FetchSuccess)();
+typedef void (^FetchSuccess)(NSData *responceData);
 
 /*** request failed blocks */
-typedef void (^FetchFailed)();
+typedef void (^FetchFailed)(NSError *error);
 
 
 /*** @class fetcher web api class */
@@ -25,6 +26,12 @@ typedef void (^FetchFailed)();
 - (void)fetchAsyncWithUrlString:(NSString *)urlString
                         success:(FetchSuccess)success
                          failed:(FetchFailed)failed;
+
+/*** sync fetcher post method */
+- (void)fetchSyncWithUrlString:(NSString *)urlString
+                     paramData:(NSData *)paramData
+                       success:(FetchSuccess)success
+                        failed:(FetchFailed)failed;
 
 /*** async fetcher post method */
 - (void)fetchAsyncWithUrlString:(NSString *)urlString
