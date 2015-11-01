@@ -1,5 +1,4 @@
-PEARHttpFetcher [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=plastic)](https://github.com/HirokiUmatani/PEARHttpFetcher/blob/master/LICENSE) [![CocoaPods](https://img.shields.io/badge/platform-ios-lightgrey.svg)](https://cocoapods.org/pods/PEARHttpFetcher)
-[![CocoaPods](https://img.shields.io/cocoapods/v/PEARHttpFetcher.svg)](https://cocoapods.org/pods/PEARHttpFetcher)
+PEARHttpFetcher [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=plastic)](https://github.com/HirokiUmatani/PEARHttpFetcher/blob/master/LICENSE) [![CocoaPods](https://img.shields.io/badge/platform-ios-lightgrey.svg)](https://cocoapods.org/pods/PEARHttpFetcher) [![CocoaPods](https://img.shields.io/cocoapods/v/PEARHttpFetcher.svg)](https://cocoapods.org/pods/PEARHttpFetcher)
 ====
 
 ### Overview
