@@ -16,7 +16,7 @@ and request method get and post.
 
 ### Install
 
-```:podfile
+```ruby:podfile
 pod "PEARHttpFetcher", "~> 0.0.1"
 ```
 
