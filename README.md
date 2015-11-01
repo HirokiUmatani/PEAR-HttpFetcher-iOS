@@ -5,7 +5,7 @@ PEARHttpFetcher [![GitHub license](https://img.shields.io/github/license/mashape
 It is Http request library for ios.
 
 ### Description
-This support is syncronous request and asynchronous request.
+This support is syncronous request and asynchronous request.  
 and request method get and post.
 
 ### Demo
@@ -15,6 +15,10 @@ and request method get and post.
 ### Usage
 
 ### Install
+
+```:podfile
+pod "PEARHttpFetcher", "~> 0.0.1"
+```
 
 ### Contribution
 
