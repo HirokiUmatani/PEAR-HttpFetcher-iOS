@@ -10,18 +10,6 @@ and request method get and post.
 
 ### Demo
 
-### Requirement
-
-### Usage
-
-### Install
-
-```ruby:podfile
-pod "PEARHttpFetcher", "~> 0.0.1"
-```
-
-### Contribution
-
 ### Licence
 [MIT](https://github.com/HirokiUmatani/PEARHttpFetcher/blob/master/LICENSE)
 
