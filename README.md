@@ -2,7 +2,7 @@ PEARHttpFetcher [![GitHub license](https://img.shields.io/github/license/mashape
 ====
 
 ### Overview
-The Library is http fetcher in ios platform
+It is Http request library for ios.
 
 ### Description
 This support is syncronous request and asynchronous request.
