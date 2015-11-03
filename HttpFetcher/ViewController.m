@@ -34,7 +34,7 @@
     {
         //call back success
     }
-                                  failed:^
+                                  failed:^(NSError *error)
     {
         //call back failed
     }];
