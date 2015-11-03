@@ -8,6 +8,11 @@ It is Http request library for ios.
 This support is syncronous request and asynchronous request.  
 and request method get and post.
 
+### Installation
+<code>
+pod 'PEARHttpFetcher'
+</code>
+
 ### Document
 [document library](http://cocoadocs.org/docsets/PEARHttpFetcher/0.0.2/Classes/PEARHttpFetcher.html)
 
