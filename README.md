@@ -8,6 +8,9 @@ It is Http request library for ios.
 This support is syncronous request and asynchronous request.  
 and request method get and post.
 
+### Document
+[document library](http://cocoadocs.org/docsets/PEARHttpFetcher/0.0.2/Classes/PEARHttpFetcher.html)
+
 ### Licence
 [MIT](https://github.com/HirokiUmatani/PEARHttpFetcher/blob/master/LICENSE)
 
