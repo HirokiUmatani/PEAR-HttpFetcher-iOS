@@ -1,4 +1,4 @@
-### PEARHttpFetcher [![GitHub license](https://img.shields.io/badge/LICENSE-MIT%20LICENSE-blue.svg)](https://github.com/HirokiUmatani/PEARHttpFetcher/LICENSE) [![CocoaPods](https://img.shields.io/badge/platform-ios-lightgrey.svg)](https://cocoapods.org/pods/PEARHttpFetcher) [![CocoaPods](https://img.shields.io/cocoapods/v/PEARHttpFetcher.svg)](https://cocoapods.org/pods/PEARHttpFetcher)  
+### PEAR-HttpFetcher-iOS [![GitHub license](https://img.shields.io/badge/LICENSE-MIT%20LICENSE-blue.svg)](https://github.com/HirokiUmatani/PEAR-HttpFetcher-iOS/LICENSE) [![CocoaPods](https://img.shields.io/badge/platform-ios-lightgrey.svg)](https://cocoapods.org/pods/PEAR-HttpFetcher-iOS) [![CocoaPods](https://img.shields.io/cocoapods/v/PEAR-HttpFetcher-iOS.svg)](https://cocoapods.org/pods/PEAR-HttpFetcher-iOS)  
 
 ====
 ### Overview
@@ -10,14 +10,14 @@ and request method get and post.
 
 ### Installation
 <code>
-pod 'PEARHttpFetcher'
+pod 'PEAR-HttpFetcher-iOS'
 </code>
 
 ### Document
-[document library](http://cocoadocs.org/docsets/PEARHttpFetcher/0.0.2/Classes/PEARHttpFetcher.html)
+[document library](http://cocoadocs.org/docsets/PEAR-HttpFetcher-iOS)
 
 ### Licence
-[MIT](https://github.com/HirokiUmatani/PEARHttpFetcher/blob/master/LICENSE)
+[MIT](https://github.com/HirokiUmatani/PEAR-HttpFetcher-iOS/blob/master/LICENSE)
 
 ### Author
 [Hiroki Umatani](https://github.com/HirokiUmatani)
