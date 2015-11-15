@@ -29,10 +29,12 @@
 - (void)sampleHttpRequest
 {
     PEARHttpFetcher *httpFetcher = [PEARHttpFetcher new];
-    [httpFetcher fetchAsyncWithUrlString:@"http://127.0.0.1"
+    [httpFetcher fetchAsyncWithUrlString:@"http://pear.chat"
                                  success:^(NSData *responseData)
     {
+        NSString *str= [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         //call back success
+        NSLog(@"%@",str);
     }
                                   failed:^(NSError *error)
     {
