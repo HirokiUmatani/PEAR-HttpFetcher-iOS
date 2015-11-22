@@ -29,7 +29,7 @@
 - (void)sampleHttpRequest
 {
     PEARHttpFetcher *httpFetcher = [PEARHttpFetcher new];
-    [httpFetcher fetchAsyncWithUrlString:@"http://pear.chat"
+    [httpFetcher fetchAsyncWithUrlString:@"http://blog.pear.chat"
                                  success:^(NSData *responseData)
     {
         NSString *str= [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];

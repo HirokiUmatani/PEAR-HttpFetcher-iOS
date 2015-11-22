@@ -15,7 +15,7 @@ typedef void (^FetchFailed)(NSError *error);
 
 
 /*** @class fetcher web api class */
-@interface PEARHttpFetcher : NSObject
+@interface PEARHttpFetcher : NSObject<NSURLSessionTaskDelegate>
 
 #pragma mark Method
 /*** sync fetcher get method */

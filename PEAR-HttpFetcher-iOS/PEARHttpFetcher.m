@@ -18,26 +18,25 @@ static NSInteger  httpTimeOut = 15;
                        success:(FetchSuccess)success
                         failed:(FetchFailed)failed
 {
-    NSMutableURLRequest *request = [self setHttpRequestWithURL:urlString
-                                                        method:httpGet];
+
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    NSMutableURLRequest * urlRequest = [self setHttpRequestWithURL:urlString method:@"GET"];
+    NSURLSessionDataTask * task = [session dataTaskWithRequest:urlRequest
+                                             completionHandler:^(NSData * data, NSURLResponse * response, NSError * error)
+    {
+        [self stopNetworkIndicator];
+        if (!error)
+        {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;
+            if (httpResp.statusCode == 200)
+            {
+                success(data);
+            }
+        }
+    }];
     [self restartNetworkIndicator];
-    
-    NSURLResponse *response;
-    NSError *error;
-    
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
-                                                 returningResponse:&response
-                                                             error:&error];
-    
-    [self stopNetworkIndicator];
-    if (error)
-    {
-        failed(error);
-    }
-    else
-    {
-        success(responseData);
-    }
+    [task resume];
     
 }
 
@@ -46,27 +45,29 @@ static NSInteger  httpTimeOut = 15;
                         success:(FetchSuccess)success
                          failed:(FetchFailed)failed
 {
-    NSMutableURLRequest *request = [self setHttpRequestWithURL:urlString
-                                                        method:httpGet];
-
+   
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    NSMutableURLRequest * urlRequest = [self setHttpRequestWithURL:urlString method:@"GET"];
+    NSURLSessionDataTask * task = [session dataTaskWithRequest:urlRequest
+                                             completionHandler:^(NSData * data, NSURLResponse * response, NSError * error)
+    {
+        [self stopNetworkIndicator];
+        if (!error)
+        {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;
+            if (httpResp.statusCode == 200)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^
+                {
+                    success(data);
+                });
+                
+            }
+        }
+    }];
     [self restartNetworkIndicator];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *responceData,
-                                               NSError *error)
-     {
-         [self stopNetworkIndicator];
-         if (error)
-         {
-             failed(error);
-         }
-         else
-         {
-             success(responceData);
-         }
-         
-     }];
+    [task resume];
 }
 
 #pragma mark - Post Sync
@@ -75,26 +76,26 @@ static NSInteger  httpTimeOut = 15;
                        success:(FetchSuccess)success
                         failed:(FetchFailed)failed
 {
-    NSMutableURLRequest *request = [self setHttpRequestWithURL:urlString
-                                                        method:httpPost];
-    request.HTTPBody = paramData;
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    NSMutableURLRequest * urlRequest = [self setHttpRequestWithURL:urlString method:@"POST"];
+    [urlRequest setHTTPBody:paramData];
+    NSURLSessionDataTask * task = [session dataTaskWithRequest:urlRequest
+                      completionHandler:^(NSData * data, NSURLResponse * response, NSError * error)
+    {
+        [self stopNetworkIndicator];
+        if (!error)
+        {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;
+            if (httpResp.statusCode == 200)
+            {
+                success(data);
+            }
+        }
+    }];
     [self restartNetworkIndicator];
-    NSURLResponse *response;
-    NSError *error;
-    
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
-                                                 returningResponse:&response
-                                                             error:&error];
-    [self stopNetworkIndicator];
-    if (error)
-    {
-        failed(error);
-    }
-    else
-    {
-        success(responseData);
-    }
-    
+    [task resume];
+
 }
 
 #pragma mark - Post ASync
@@ -103,26 +104,29 @@ static NSInteger  httpTimeOut = 15;
                         success:(FetchSuccess)success
                          failed:(FetchFailed)failed
 {
-    NSMutableURLRequest *request = [self setHttpRequestWithURL:urlString
-                                                        method:httpPost];
-    request.HTTPBody = paramData;
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    NSMutableURLRequest * urlRequest = [self setHttpRequestWithURL:urlString method:@"POST"];
+    [urlRequest setHTTPBody:paramData];
+    NSURLSessionDataTask * task = [session dataTaskWithRequest:urlRequest
+                                             completionHandler:^(NSData * data, NSURLResponse * response, NSError * error)
+    {
+        [self stopNetworkIndicator];
+        if (!error)
+        {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;
+            if (httpResp.statusCode == 200)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^
+                               {
+                                   success(data);
+                               });
+                
+            }
+        }
+    }];
     [self restartNetworkIndicator];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *responceData,
-                                               NSError *error)
-     {
-         [self stopNetworkIndicator];
-         if (error)
-         {
-             failed(error);
-         }
-         else
-         {
-             success(responceData);
-         }
-     }];
+    [task resume];
 }
 
 #pragma mark - Set Post Parameter -
@@ -161,14 +165,11 @@ static NSInteger  httpTimeOut = 15;
 - (NSMutableURLRequest *)setHttpRequestWithURL:(NSString *)urlString
                                         method:(NSString *)method
 {
-    NSMutableURLRequest *request = NSMutableURLRequest.new;
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    request.URL             = url;
-    request.HTTPMethod      = method;
-    request.timeoutInterval = httpTimeOut;
-
-    return request;
+    NSURL * url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setHTTPMethod:method];
+    [urlRequest setTimeoutInterval: httpTimeOut];
+    return urlRequest;
 }
 
 #pragma mark - Indicator

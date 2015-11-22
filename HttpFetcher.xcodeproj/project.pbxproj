@@ -12,7 +12,6 @@
 		F4AD2D081BE3B1EB0095FA52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AD2D071BE3B1EB0095FA52 /* ViewController.m */; };
 		F4AD2D0B1BE3B1EB0095FA52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4AD2D091BE3B1EB0095FA52 /* Main.storyboard */; };
 		F4AD2D0D1BE3B1EB0095FA52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AD2D0C1BE3B1EB0095FA52 /* Images.xcassets */; };
-		F4AD2D101BE3B1EB0095FA52 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AD2D0E1BE3B1EB0095FA52 /* LaunchScreen.xib */; };
 		F4AD2D1C1BE3B1EB0095FA52 /* HttpFetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AD2D1B1BE3B1EB0095FA52 /* HttpFetcherTests.m */; };
 		F4AD2D281BE3B2570095FA52 /* PEARHttpFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AD2D271BE3B2570095FA52 /* PEARHttpFetcher.m */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		F4AD2D071BE3B1EB0095FA52 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F4AD2D0A1BE3B1EB0095FA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4AD2D0C1BE3B1EB0095FA52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F4AD2D0F1BE3B1EB0095FA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F4AD2D151BE3B1EB0095FA52 /* HttpFetcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HttpFetcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4AD2D1A1BE3B1EB0095FA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4AD2D1B1BE3B1EB0095FA52 /* HttpFetcherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpFetcherTests.m; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				F4AD2D071BE3B1EB0095FA52 /* ViewController.m */,
 				F4AD2D091BE3B1EB0095FA52 /* Main.storyboard */,
 				F4AD2D0C1BE3B1EB0095FA52 /* Images.xcassets */,
-				F4AD2D0E1BE3B1EB0095FA52 /* LaunchScreen.xib */,
 				F4AD2CFF1BE3B1EB0095FA52 /* Supporting Files */,
 			);
 			path = HttpFetcher;
@@ -214,7 +211,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4AD2D0B1BE3B1EB0095FA52 /* Main.storyboard in Resources */,
-				F4AD2D101BE3B1EB0095FA52 /* LaunchScreen.xib in Resources */,
 				F4AD2D0D1BE3B1EB0095FA52 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,14 +263,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F4AD2D0E1BE3B1EB0095FA52 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4AD2D0F1BE3B1EB0095FA52 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -315,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -353,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
